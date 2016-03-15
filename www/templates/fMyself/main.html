@@ -1,18 +1,14 @@
 <ion-view>
     <ion-nav-title class="text-center">
-        <div class="row" style="font-size:25px;margin-top:-11px;">
-            <div class="col col-20"><i class="icon ion-ios-plus-outline"></i></div>
-            <div class="col">
-                <label class="item-input-wrapper" style="background-color: #ffffff;margin-top: 7px;">
-                    <i class="icon ion-search placeholder-icon"></i>
-                    <input type="text" placeholder="Search" style="height: 30px;">
-                </label>
-            </div>
-            <div class="col col-20"><i class="icon ion-ios-star-outline"></i></div>
-        </div>
+      <div class="bar bar-header">
+        <button class="button icon ion-plus-round"></button>
+        <h1 class="title">我</h1>
+        <button class="button icon ion-ios-gear"></button>
+      </div>
     </ion-nav-title>
-    <ion-content class="padding has-header">
-        <p>myself</p>
-        <div style="height: 1500px;"></div>
+    <ion-content class="has-header stable-bg">
+      <div ng-include="'./templates/fMyself/top.html'"></div>
+      <div ng-include="'./templates/fMyself/middle.html'"></div>
+      <div ng-include="'./templates/fMyself/bottom.html'" style="margin-top: 10px;"></div>
     </ion-content>
 </ion-view>
