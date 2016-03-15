@@ -28,7 +28,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
   });
 /*  暂不能使用此功能，有bug*/
     //双击退出
-    $ionicPlatform.registerBackButtonAction(function (event) {
+   /* $ionicPlatform.registerBackButtonAction(function (event) {
         //判断处于哪个页面时双击退出
         if ($location.path() == '/tab/fHunter') {
             if ($rootScope.backButtonPressedOnceToExit) {
@@ -56,7 +56,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
         }
         event.preventDefault();
         return true;
-    }, 101);
+    }, 101);*/
 
 })
 
@@ -87,41 +87,12 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
-    abstract: true,     //抽象页面，不能独立作为页面展示只能作为其他页面父页面，当加载子页面之前加载父页面。
-    templateUrl: 'templates/tabs.html'
+    abstract: false,     //抽象页面，if true不能独立作为页面展示只能作为其他页面父页面，当加载子页面之前加载父页面。
+    templateUrl: 'tabs.html'
   })
 
   // Each tab has its own nav history stack:
 
-  .state('tab.fSkill', {
-    url: '/fSkill',
-    views: {
-      'tab-fSkill': {
-        templateUrl: 'templates/fSkill/main.html',
-        controller: 'fSkillCtrl'
-      }
-    }
-  })
-
-  .state('tab.fHunter', {
-      url: '/fHunter',
-      views: {
-        'tab-fHunter': {
-          templateUrl: 'templates/fHunter/main.html',
-          controller: 'fHunterCtrl'
-        }
-      }
-    })
-
-  .state('tab.fGroup', {
-      url: '/fGroup',
-      views: {
-          'tab-fGroup': {
-              templateUrl: 'templates/fGroup/main.html',
-              controller: 'fGroupCtrl'
-          }
-      }
-  })
     /*.state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
@@ -132,17 +103,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
       }
     })*/
 
-  .state('tab.fMyself', {
-    url: '/fMyself',
-    views: {
-      'tab-fMyself': {
-        templateUrl: 'templates/fMyself/main.html',
-        controller: 'fMyselfCtrl'
-      }
-    }
-  });
-
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/fSkill');
+  $urlRouterProvider.otherwise('/tab');
 
 });

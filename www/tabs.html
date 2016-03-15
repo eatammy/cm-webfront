@@ -1,0 +1,48 @@
+<ion-view>
+    <ion-nav-title class="text-center" ng-controller="titleCtrl">
+        <ng-include src="'cook/title.html'" ng-if="myVar1"></ng-include>
+        <ng-include src="'business/title.html'" ng-if="myVar2"></ng-include>
+        <ng-include src="'share/title.html'" ng-if="myVar3"></ng-include>
+        <ng-include src="'user/title.html'" ng-if="myVar4"></ng-include>
+    </ion-nav-title>
+    <ion-content ng-controller="tabSliderCtrl" padding="false" overflow-scroll="false">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="false" does-continue="false"
+                       slide-interval="3000" show-pager="false" pager-click="pageClick(index)"
+                       active-slide="model.activeIndex" delegate-handle="delegateHandlerOne" on-drag-left="onDragLeft()"
+                       on-drag-right="onDragRight()">
+            <ion-slide>
+                <div ng-include="'cook/main.html'"></div>
+            </ion-slide>
+            <ion-slide>
+                <div ng-include="'share/main.html'"></div>
+            </ion-slide>
+            <ion-slide>
+                <div ng-include="'share/main.html'"></div>
+            </ion-slide>
+            <ion-slide>
+                <div ng-include="'user/main.html'"></div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+</ion-view>
+
+
+<ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-controller="tabCtrl">
+
+    <!-- fSkill Tab -->
+    <ion-tab title="食神秘籍" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" ng-click="selectTabWithIndex(0)">
+    </ion-tab>
+
+    <!-- fHunter Tab -->
+    <ion-tab title="惠吃派" icon-off="ion-ios-paw-outline" icon-on="ion-ios-paw" ng-click="selectTabWithIndex(1)">
+    </ion-tab>
+
+    <!-- fGroup Tab -->
+    <ion-tab title="美食圈" icon-off="ion-ios-camera-outline" icon-on="ion-ios-camera" ng-click="selectTabWithIndex(2)">
+    </ion-tab>
+
+    <!-- fMyself Tab -->
+    <ion-tab title="我" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" ng-click="selectTabWithIndex(3)">
+    </ion-tab>
+
+</ion-tabs>
