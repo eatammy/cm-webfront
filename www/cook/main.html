@@ -1,0 +1,47 @@
+<div ng-controller="imgSliderCtrl" on-touch="onTouch()" on-release="onRelease()">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true"
+                   slide-interval="3000" show-pager="true" pager-click="pageClick(index)"
+                   active-slide="model.activeIndex" delegate-handle="delegateHandlerTwo">
+        <ion-slide>
+            <div class="box">
+                <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="box">
+                <img src="http://img.iyookee.cn/20150619/20150619_100607_883_670.png">
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="box">
+                <img src="http://img.iyookee.cn/20150714/20150714_172952_955_22.jpg">
+            </div>
+        </ion-slide>
+    </ion-slide-box>
+</div>
+<div class="row text-center" id="tab-psf"  style="min-height: 400px;">
+    <div class="col">
+        <div class="row">
+            <div class="col"><img src="cook/img/paixing.png"/></div>
+        </div>
+        <div class="row">
+            <div class="col"><p>排行</p></div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col"><img src="cook/img/shimie.png"/></div>
+        </div>
+        <div class="row">
+            <div class="col"><p>食咩</p></div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col"><img src="cook/img/fenlei.png"/></div>
+        </div>
+        <div class="row">
+            <div class="col"><p>分类</p></div>
+        </div>
+    </div>
+</div>
