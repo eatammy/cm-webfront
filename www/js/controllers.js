@@ -1,81 +1,28 @@
-var app = angular.module('starter.controllers', []);
+angular.module('starter.controllers', [])
 
-function getControllerScope(controller){
-    var appElement = document.querySelector('[ng-controller='+controller+']');
-    var $scope = angular.element(appElement).scope();
-    return $scope;
-}
-/**
- * 配置tab ctrl 点击tab时页面可以切换
- */
-app.controller('tabCtrl',function($scope, $ionicTabsDelegate) {
-    $scope.selectTabWithIndex = function(index) {
-        $ionicTabsDelegate.select(index);
-        var $scope = getControllerScope('tabSliderCtrl');
-        $scope.model.activeIndex = index;
+.controller('fSkillCtrl', function($scope,$ionicHistory, $state) {
+        $ionicHistory.clearHistory();
+   //     $state.go("tab.fSkill");
+})
 
-        getControllerScope('titleCtrl').deal(index);
-    }
-});
-/**
- * 配置tabSlider ctrl 滑动页面时可以更改tab
- */
-app.controller('tabSliderCtrl',function($scope,$ionicSlideBoxDelegate){
-    //为了验证属性active-slide定义的模型，angularjs是mvc模式
-    $scope.model = {
-        activeIndex:0
-    };
-    //当图片切换后，触发此事件，注意参数
-    $scope.slideHasChanged = function($index){
-        var $scope = getControllerScope('tabCtrl');
-        $scope.selectTabWithIndex($index);
+.controller('fHunterCtrl', function($scope, $ionicHistory,Chats,$state) {
+  // With the new view caching in Ionic, Controllers are only called
+  // when they are recreated or on app start, instead of every page change.
+  // To listen for when this page is active (for example, to refresh data),
+  // listen for the $ionicView.enter event:
+  //
+  //$scope.$on('$ionicView.enter', function(e) {
+  //});
+        $ionicHistory.clearHistory();
+    //    $state.go("tab.fHunter");
+})
 
-        getControllerScope('titleCtrl').deal($index);
-    };
-    //这是属性delegate-handle的验证使用的，其实没必要重定义，直接使用$ionicSlideBoxDelegate就可以
-    $scope.delegateHandlerOne = $ionicSlideBoxDelegate;
+.controller('fGroupCtrl', function($scope, $stateParams,$ionicHistory,Chats,$state) {
+     $ionicHistory.clearHistory();
+     //   $state.go("tab.fGroup");
+})
 
-    $scope.onDragRight = function(){
-        $ionicSlideBoxDelegate.$getByHandle('delegateHandlerOne').enableSlide(true);
-        if($scope.model.activeIndex==0){
-            $ionicSlideBoxDelegate.$getByHandle('delegateHandlerOne').enableSlide(false);
-        }
-    };
-    $scope.onDragLeft = function(){
-        $ionicSlideBoxDelegate.$getByHandle('delegateHandlerOne').enableSlide(true);
-        if($scope.model.activeIndex==3){
-            $ionicSlideBoxDelegate.$getByHandle('delegateHandlerOne').enableSlide(false);
-        }
-    };
-});
-
-app.controller('titleCtrl',function($scope){
-    $scope.myVar1=true;
-    $scope.myVar2=false;
-    $scope.myVar3=false;
-    $scope.myVar4=false;
-
-    $scope.deal = function(index){
-        if(index==0){
-            $scope.myVar1=true;
-            $scope.myVar2=false;
-            $scope.myVar3=false;
-            $scope.myVar4=false;
-        }else if(index==1){
-            $scope.myVar2=true;
-            $scope.myVar1=false;
-            $scope.myVar3=false;
-            $scope.myVar4=false;
-        }else if(index==2){
-            $scope.myVar3=true;
-            $scope.myVar1=false;
-            $scope.myVar2=false;
-            $scope.myVar4=false;
-        }else if(index==3){
-            $scope.myVar4=true;
-            $scope.myVar1=false;
-            $scope.myVar2=false;
-            $scope.myVar3=false;
-        }
-    }
+.controller('fMyselfCtrl', function($scope,$ionicHistory,$state) {
+        $ionicHistory.clearHistory();
+       // $state.go("tab.fMyself");
 });
