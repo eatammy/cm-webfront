@@ -18,9 +18,11 @@ app.controller('imgSliderCtrl',function($scope,$ionicSlideBoxDelegate){
     $scope.delegateHandlerTwo = $ionicSlideBoxDelegate;
 
     $scope.onTouch = function(){
+        onImgSlider = true;
         $ionicSlideBoxDelegate.$getByHandle('delegateHandlerOne').enableSlide(false);
     }
     $scope.onRelease = function(){
+        onImgSlider = false;
         $ionicSlideBoxDelegate.$getByHandle('delegateHandlerOne').enableSlide(true);
     }
 });

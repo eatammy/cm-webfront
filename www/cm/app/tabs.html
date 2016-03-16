@@ -1,9 +1,9 @@
 <ion-view>
     <ion-nav-title class="text-center" ng-controller="titleCtrl">
-        <ng-include src="'cook/title.html'" ng-if="myVar1"></ng-include>
-        <ng-include src="'business/title.html'" ng-if="myVar2"></ng-include>
-        <ng-include src="'share/title.html'" ng-if="myVar3"></ng-include>
-        <ng-include src="'user/title.html'" ng-if="myVar4"></ng-include>
+        <ng-include src="'cm/app/cook/title.html'" ng-if="myVar1"></ng-include>
+        <ng-include src="'cm/app/business/title.html'" ng-if="myVar2"></ng-include>
+        <ng-include src="'cm/app/social/title.html'" ng-if="myVar3"></ng-include>
+        <ng-include src="'cm/app/user/title.html'" ng-if="myVar4"></ng-include>
     </ion-nav-title>
     <ion-content ng-controller="tabSliderCtrl" padding="false" overflow-scroll="false">
         <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="false" does-continue="false"
@@ -11,16 +11,16 @@
                        active-slide="model.activeIndex" delegate-handle="delegateHandlerOne" on-drag-left="onDragLeft()"
                        on-drag-right="onDragRight()">
             <ion-slide>
-                <div ng-include="'cook/main.html'"></div>
+                <div ng-include="'cm/app/cook/main.html'"></div>
             </ion-slide>
             <ion-slide>
-                <div ng-include="'share/main.html'"></div>
+                <div ng-include="'cm/app/social/main.html'"></div>
             </ion-slide>
             <ion-slide>
-                <div ng-include="'share/main.html'"></div>
+                <div ng-include="'cm/app/social/main.html'"></div>
             </ion-slide>
             <ion-slide>
-                <div ng-include="'user/main.html'"></div>
+                <div ng-include="'cm/app/user/main.html'"></div>
             </ion-slide>
         </ion-slide-box>
     </ion-content>
