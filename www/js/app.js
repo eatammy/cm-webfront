@@ -10,7 +10,7 @@
  *cordova plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git
  * for return button
  */
-angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic','ngCordova','starter.controllers'])
 
 .run(function($ionicPlatform, $rootScope, $location, $timeout, $ionicHistory,$cordovaToast,$cordovaKeyboard) {
   $ionicPlatform.ready(function() {
@@ -88,7 +88,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
     .state('tab', {
     url: '/tab',
     abstract: false,     //抽象页面，if true不能独立作为页面展示只能作为其他页面父页面，当加载子页面之前加载父页面。
-    templateUrl: 'tabs.html'
+    templateUrl: 'cm/app/tabs.html'
   })
 
   // Each tab has its own nav history stack:
