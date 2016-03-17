@@ -91,6 +91,13 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers'])
     templateUrl: 'cm/app/tabs.html'
   })
 
+    //“我”界面内的路由设置
+    .state('user', {
+      url: '/user/setting',
+      abstract: false,
+      templateUrl: 'cm/app/user/setting/main.html'
+    })
+
   // Each tab has its own nav history stack:
 
     /*.state('tab.chat-detail', {
