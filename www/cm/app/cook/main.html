@@ -46,4 +46,24 @@
     </div>
 </div>
 
-<div style="height: 1000px;"></div>
+<div class="c-gray text-center" ng-controller="c-loadmoreCtrl">
+    <span><b>·</b>最新美食<b>·</b></span>
+    <div id="dd">
+        <div class="c-img" style="position: relative;">
+            <img src="cm/app/cook/img/food.jpg"/>
+            <span class="c-signature">芒果椰奶慕斯&nbsp;浓浓香芒~</span>
+            <img src="cm/app/cook/img/touxiang.jpg" class="c-headPhoto"/>
+        </div>
+        <span class="c-bottom">
+            <i class="icon ion-ios-chatbubble-outline"></i>&nbsp;<text>100</text>
+            <i class="icon ion-ios-heart-outline"></i>&nbsp;<text>59</text>
+            <span class="c-username">郑永朗</span>
+        </span>
+    </div>
+    <div style="height: 20px;"></div>
+    <div id="hh"></div>
+    <ion-infinite-scroll ng-if="moredata" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+    <div style="margin-top: 10px;"><i class="icon ion-chevron-down"></i></div>
+</div>
+
+
