@@ -1,21 +1,23 @@
-.box {
+.c-img {
     width: 100%;
     height: 160px;
 }
 
-.box > img {
+.c-img > img {
     width: 100%;
     height: 100%;
 }
-
+/*此为ionic内部属性，调节切换图片小圆点start*/
 .slider-pager .slider-pager-page {
     color: #fff;
     font-size: 10px;
 }
-#tab-psf img{
+/*此为ionic内部属性，调节切换图片小圆点end*/
+
+#c-psf img{
     height: 70px;
 }
-#tab-psf p{
+#c-psf p{
     color: #7B7C7C;
     font-weight:bold;
     font-size: 15px;
