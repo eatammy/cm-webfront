@@ -12,7 +12,7 @@
  */
 angular.module('starter', ['ionic','ngCordova','starter.controllers'])
 
-.run(function($ionicPlatform, $rootScope, $location, $timeout, $ionicHistory,$cordovaToast,$cordovaKeyboard) {
+.run(function($ionicPlatform, $rootScope, $location, $timeout, $ionicHistory,$cordovaToast,$cordovaKeyboard,$ionicPopup) {
   $ionicPlatform.ready(function() {
 
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -26,38 +26,77 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers'])
       StatusBar.styleDefault();
     }
   });
-/*  暂不能使用此功能，有bug*/
-    //双击退出
-   /* $ionicPlatform.registerBackButtonAction(function (event) {
-        //判断处于哪个页面时双击退出
-        if ($location.path() == '/tab/fHunter') {
-            if ($rootScope.backButtonPressedOnceToExit) {
-                ionic.Platform.exitApp();
+   //双击退出
+        $ionicPlatform.registerBackButtonAction(function (e) {
+            if (ionic.keyboard.isOpen) {
+                $cordovaKeyboard.close();
+            }
+            //判断处于哪个页面时双击退出
+            else if ($location.path() == '/tab') {
+                if ($rootScope.backButtonPressedOnceToExit) {
+                    ionic.Platform.exitApp();
+                } else {
+                    $rootScope.backButtonPressedOnceToExit = true;
+                    $cordovaToast.showShortBottom('再按一次退出系统');
+                    setTimeout(function () {
+                        $rootScope.backButtonPressedOnceToExit = false;
+                    }, 2000);
+                }
+            }
+            else if ($ionicHistory.backView()) {
+                if (ionic.keyboard.isOpen) {
+                    $cordovaKeyboard.close();
+                } else {
+                    $ionicHistory.goBack();
+                }
             } else {
                 $rootScope.backButtonPressedOnceToExit = true;
-                $cordovaToast.showShortTop('再按一次退出系统');
+                $cordovaToast.showShortBottom('再按一次退出系统');
                 setTimeout(function () {
                     $rootScope.backButtonPressedOnceToExit = false;
                 }, 2000);
             }
-        }
-        else if ($ionicHistory.backView()) {
-            if ($cordovaKeyboard.isVisible()) {
-                $cordovaKeyboard.close();
-            } else {
-                $ionicHistory.goBack();
+            e.preventDefault();
+            return true;
+        }, 101);
+   /* //弹出窗口退出
+        $ionicPlatform.registerBackButtonAction(function (e) {
+            function showConfirm() {
+                var confirmPopup = $ionicPopup.confirm({
+                    title: '<strong>退出应用?</strong>',
+                    template: '你确定要退出应用吗?',
+                    okText: '退出',
+                    cancelText: '取消'
+                });
+                confirmPopup.then(function (res) {
+                    if (res) {
+                        ionic.Platform.exitApp();
+                    } else {
+                        // Don't close
+                    }
+                });
             }
-        } else {
-            $rootScope.backButtonPressedOnceToExit = true;
-            $cordovaToast.showShortTop('再按一次退出系统');
-            setTimeout(function () {
-                $rootScope.backButtonPressedOnceToExit = false;
-            }, 2000);
-        }
-        event.preventDefault();
-        return true;
-    }, 101);*/
-
+            //判断处于哪个页面时双击退出
+            if ($location.path() == '/tab' ) {
+                if (ionic.keyboard.isOpen) {
+                    $cordovaKeyboard.close();
+                }else{
+                    showConfirm();
+                }
+            }else if ($ionicHistory.backView()) {
+                if (ionic.keyboard.isOpen) {
+                    $cordovaKeyboard.close();
+                }else{
+                    $ionicHistory.goBack();
+                }
+            }else {
+                // This is the last page: Show confirmation popup
+                showConfirm();
+            }
+            e.preventDefault();
+            return false;
+        }, 101);
+*/
 })
 
 .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
