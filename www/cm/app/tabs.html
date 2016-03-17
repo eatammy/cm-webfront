@@ -2,7 +2,7 @@
     <ion-nav-title class="text-center" ng-controller="titleCtrl">
         <ng-include src="'cm/app/cook/title.html'" ng-if="dealReturn(0)"></ng-include>
         <ng-include src="'cm/app/business/title.html'" ng-if="dealReturn(1)"></ng-include>
-        <ng-include src="'cm/app/social/title.html'" ng-if="dealReturn(2)"></ng-include>
+        <ng-include src="'cm/app/share/title.html'" ng-if="dealReturn(2)"></ng-include>
         <ng-include src="'cm/app/user/title.html'" ng-if="dealReturn(3)"></ng-include>
     </ion-nav-title>
     <ion-content ng-controller="tabSliderCtrl" padding="false" overflow-scroll="true">
@@ -14,10 +14,10 @@
                     <div ng-include="'cm/app/cook/main.html'"></div>
             </ion-slide>
             <ion-slide scrollbar-y="false" class="slidePage">
-                <div ng-include="'cm/app/social/main.html'"></div>
+                <div ng-include="'cm/app/business/main.html'"></div>
             </ion-slide>
             <ion-slide scrollbar-y="false" class="slidePage">
-                <div ng-include="'cm/app/social/main.html'"></div>
+                <div ng-include="'cm/app/share/main.html'"></div>
             </ion-slide>
             <ion-slide scrollbar-y="false" class="slidePage">
                 <div ng-include="'cm/app/user/main.html'"></div>
