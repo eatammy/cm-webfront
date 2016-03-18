@@ -4,8 +4,16 @@
   @创建时间：2016-03-17
   @更新时间：2016-03-17
 -->
-<div class="stable-bg">
-  <div ng-include="'cm/app/business/top.html'"></div>
-  <div ng-include="'cm/app/business/middle.html'"></div>
-  <div ng-include="'cm/app/business/bottom.html'"></div>
-</div>
+
+<ion-view>
+    <ion-nav-title class="text-center">
+        <ng-include src="'cm/app/business/title.html'"></ng-include>
+    </ion-nav-title>
+    <ion-content>
+        <div class="stable-bg">
+            <div ng-include="'cm/app/business/top.html'"></div>
+            <div ng-include="'cm/app/business/middle.html'"></div>
+            <div ng-include="'cm/app/business/bottom.html'"></div>
+        </div>
+    </ion-content>
+</ion-view>

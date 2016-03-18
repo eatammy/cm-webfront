@@ -1,0 +1,67 @@
+<div ng-controller="imgSliderCtrl" on-touch="onTouch()" on-release="onRelease()">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true"
+                   slide-interval="3000" show-pager="true" pager-click="pageClick(index)"
+                   active-slide="model.activeIndex" delegate-handle="delegateHandler">
+        <ion-slide>
+            <div class="c-img">
+                <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="c-img">
+                <img src="http://img.iyookee.cn/20150619/20150619_100607_883_670.png">
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="c-img">
+                <img src="http://img.iyookee.cn/20150714/20150714_172952_955_22.jpg">
+            </div>
+        </ion-slide>
+    </ion-slide-box>
+</div>
+<div class="row text-center" id="c-psf">
+    <div class="col">
+        <div class="row">
+            <div class="col"><img src="cm/app/cook/img/paixing.png"/></div>
+        </div>
+        <div class="row">
+            <div class="col"><p>排行</p></div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col"><img src="cm/app/cook/img/shimie.png"/></div>
+        </div>
+        <div class="row">
+            <div class="col"><p>食咩</p></div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col"><img src="cm/app/cook/img/fenlei.png"/></div>
+        </div>
+        <div class="row">
+            <div class="col"><p>分类</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="c-gray text-center" ng-controller="c-loadmoreCtrl">
+    <span><b>·</b>最新美食<b>·</b></span>
+    <div id="dd">
+        <div class="c-img" style="position: relative;">
+            <img src="cm/app/cook/img/food.jpg"/>
+            <span class="c-signature">芒果椰奶慕斯&nbsp;浓浓香芒~</span>
+            <img src="cm/app/cook/img/touxiang.jpg" class="c-headPhoto"/>
+        </div>
+        <span class="c-bottom">
+            <i class="icon ion-ios-chatbubble-outline"></i>&nbsp;<text>100</text>
+            <i class="icon ion-ios-heart-outline"></i>&nbsp;<text>59</text>
+            <span class="c-username">郑永朗</span>
+        </span>
+    </div>
+    <div style="height: 20px;"></div>
+    <div id="hh"></div>
+    <ion-infinite-scroll ng-if="moredata" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+    <div style="margin-top: 10px;"><i class="icon ion-chevron-down"></i></div>
+</div>
