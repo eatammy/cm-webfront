@@ -15,15 +15,13 @@ app.controller('imgSliderCtrl',function($scope,$ionicSlideBoxDelegate){
     };
 
     //这是属性delegate-handle的验证使用的，其实没必要重定义，直接使用$ionicSlideBoxDelegate就可以
-    $scope.delegateHandlerTwo = $ionicSlideBoxDelegate;
+    $scope.delegateHandler = $ionicSlideBoxDelegate;
 
     $scope.onTouch = function(){
-        onImgSlider = true;
-        $ionicSlideBoxDelegate.$getByHandle('delegateHandlerOne').enableSlide(false);
+
     }
     $scope.onRelease = function(){
-        onImgSlider = false;
-        $ionicSlideBoxDelegate.$getByHandle('delegateHandlerOne').enableSlide(true);
+
     }
 })
 

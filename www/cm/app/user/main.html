@@ -4,8 +4,16 @@
   @创建时间：2016-03-15
   @更新时间：2016-03-17
 -->
-<div class="stable-bg" style="min-height: 500px">
-    <div ng-include="'cm/app/user/top.html'"></div>
-    <div ng-include="'cm/app/user/middle.html'"></div>
-    <div ng-include="'cm/app/user/bottom.html'" style="margin-top: 10px;"></div>
-</div>
+
+<ion-view>
+    <ion-nav-title class="text-center">
+        <ng-include src="'cm/app/user/title.html'"></ng-include>
+    </ion-nav-title>
+    <ion-content>
+        <div class="stable-bg" style="min-height: 500px">
+            <div ng-include="'cm/app/user/top.html'"></div>
+            <div ng-include="'cm/app/user/middle.html'"></div>
+            <div ng-include="'cm/app/user/bottom.html'" style="margin-top: 10px;"></div>
+        </div>
+    </ion-content>
+</ion-view>
