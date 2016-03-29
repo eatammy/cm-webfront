@@ -204,14 +204,10 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers'])
       }
     })
     //我的食谱
-    .state('tab.recipes', {
+    .state('recipes', {
       url: '/user/recipes',
-      views: {
-        'tab-user': {
-          templateUrl: 'cm/app/user/recipes/main.html',
-          controller: 'userRecipesCtrl'
-        }
-      }
+      templateUrl: 'cm/app/user/recipes/main.html',
+      controller: 'userRecipesCtrl'
     })
     //我的收藏
     .state('tab.collections', {

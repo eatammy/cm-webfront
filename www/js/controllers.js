@@ -1,23 +1,53 @@
 var app = angular.module('starter.controllers', [])
 
 .controller('cookCtrl', function ($scope, $ionicHistory, $state) {
-
-    //$state.go("tab.cook");
+    $scope.onSwipeLeft = function() {
+      $state.go("tab.business");
+    };
 })
 
 .controller('businessCtrl', function ($scope, $ionicHistory, $state) {
-
-  //  $state.go("tab.business");
+    $scope.onSwipeLeft = function() {
+      $state.go("tab.share");
+    };
+    $scope.onSwipeRight = function() {
+      $state.go("tab.cook");
+    };
 })
 
 .controller('shareCtrl', function ($scope, $stateParams, $ionicHistory,$state) {
-
-  //  $state.go("tab.share");
+    $scope.onSwipeLeft = function() {
+      $state.go("tab.user");
+    };
+    $scope.onSwipeRight = function() {
+      $state.go("tab.business");
+    };
 })
 
-.controller('userCtrl', function ($scope, $ionicHistory, $state) {
+.controller('userCtrl', function ($scope, $ionicHistory, $state,$http) {
+    $scope.onSwipeRight = function() {
+      $state.go("tab.share");
+    };
+    //测试数据
+    var uData={
+      "userbean":
+      {
+        "attentions":143,
+        "funs":144,
+        "headIcon":"http://7vijoa.com1.z0.glb.clouddn.com/img7.jpg",
+        "uWords":"只有食物让我心安",
+        "uid":9,
+        "username":"Mark Brown"
+      }
+    };
+    $scope.uInfo=uData.userbean;
+    $http.get('/cm/app/user/queryOne',{params:{id:1}
+    }).success(function(data,status){
+      //$scope.uInfo=data.userbean;
+    }).error(function(data,status){
+      //错误时执行的代码
+    });
 
- //   $state.go("tab.user");
 });
 
 function getControllerScope(controller) {

@@ -2,7 +2,7 @@
   @“发现”的主界面
   @作者：dyxm
   @创建时间：2016-03-15
-  @更新时间：2016-03-17
+  @更新时间：2016-03-29
 -->
 <style>
     .s-row-div .col {
@@ -34,7 +34,7 @@
     <ion-nav-title class="text-center">
         <ng-include src="'cm/app/share/title.html'"></ng-include>
     </ion-nav-title>
-    <ion-content>
+    <ion-content on-swipe-left="onSwipeLeft()" on-swipe-right="onSwipeRight()">
         <div class="stable-bg">
             <div class="row s-row-div">
                 <div class="col assertive-bg">

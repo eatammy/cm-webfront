@@ -40,18 +40,18 @@
     }
 </style>
 
-<div class="u-info-box assertive-bg">
+<div class="u-info-box assertive-bg" ng-controller="userCtrl">
     <div class="u-face">
         <a class="" href="#">
-            <img src="cm/app/user/img/touxiang.jpg">
+            <img ng-src="{{uInfo.headIcon}}" />
         </a>
     </div>
     <div class="u-info">
-        <p><strong>东岳熊猫</strong></p>
+        <p><strong ng-bind="uInfo.username"></strong></p>
         <p>
-            <strong>123<span>关注</span></strong> |
-            <strong>123<span>粉丝</span></strong>
+            <strong><span ng-bind="uInfo.attentions"></span><span>关注</span></strong> |
+            <strong><span ng-bind="uInfo.funs"></span><span>粉丝</span></strong>
         </p>
-        <p>只有食物能让我安心</p>
+        <p ng-bind="uInfo.uWords"></p>
     </div>
 </div>
