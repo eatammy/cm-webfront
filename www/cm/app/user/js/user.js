@@ -2,6 +2,39 @@ app
   //设置
   .controller('userSettingCtrl', function ($scope, $ionicHistory, $state) {
 })
+  //修改个人详细信息
+  .controller('userDetailInfoCtrl', function ($scope,$rootScope, $ionicPopup,$ionicHistory, $state) {
+    //用户数据
+    $scope.uInfo=$rootScope.uData.userbean;
+
+    //弹窗修改昵称
+    $scope.showAlterNamePopup = function() {
+      $scope.data = {};
+      var myPopup = $ionicPopup.show({
+        template: ' <label class="item item-input"><input type="text" ng-model="data.username" placeholder="请输入昵称..."></label>',
+        title: '请输入新昵称',
+        //subTitle: 'Please use normal things',
+        scope: $scope,
+        buttons: [
+          {
+            text: '取消',
+            type: 'button-light',
+          },
+          {
+            text: '<b>确定</b>',
+            type: 'button-assertive',
+            onTap: function (e) {
+              if (!$scope.data.username) {
+                e.preventDefault();
+              } else {
+                $scope.uInfo.username=$scope.data.username;
+              }
+            }
+          },
+        ]
+      });
+    }
+  })
   //添加朋友
   .controller('userAddFriendCtrl', function ($scope, $ionicHistory, $state) {
   })

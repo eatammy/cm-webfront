@@ -24,29 +24,19 @@ var app = angular.module('starter.controllers', [])
     };
 })
 
-.controller('userCtrl', function ($scope, $ionicHistory, $state,$http) {
+.controller('userCtrl', function ($scope, $rootScope,$ionicHistory, $state,$http) {
     $scope.onSwipeRight = function() {
       $state.go("tab.share");
     };
     //测试数据
-    var uData={
-      "userbean":
-      {
-        "attentions":143,
-        "funs":144,
-        "headIcon":"http://7vijoa.com1.z0.glb.clouddn.com/img7.jpg",
-        "uWords":"只有食物让我心安",
-        "uid":9,
-        "username":"Mark Brown"
-      }
-    };
-    $scope.uInfo=uData.userbean;
-    $http.get('/cm/app/user/queryOne',{params:{id:1}
+    $scope.uInfo=$rootScope.uData.userbean;
+
+   /* $http.get('/cm/app/user/queryOne',{params:{id:1}
     }).success(function(data,status){
       //$scope.uInfo=data.userbean;
     }).error(function(data,status){
       //错误时执行的代码
-    });
+    });*/
 
 });
 

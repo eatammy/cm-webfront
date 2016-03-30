@@ -10,7 +10,7 @@
  *cordova plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git
  * for return button
  */
-angular.module('starter', ['ionic','ngCordova','starter.controllers'])
+angular.module('starter', ['ionic','ngCordova','starter.controllers','user.routers'])
 
 .run(function($ionicPlatform, $rootScope, $location, $timeout, $ionicHistory,$cordovaToast,$cordovaKeyboard,$ionicPopup) {
     $ionicPlatform.ready(function() {
@@ -98,6 +98,21 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers'])
      return false;
      }, 101);
      */
+
+    //保存用户信息（测试用）
+    $rootScope.uData={
+      "userbean":
+      {
+        "attentions":143,
+        "funs":144,
+        "headIcon":"http://7vijoa.com1.z0.glb.clouddn.com/img7.jpg",
+        "uWords":"只有食物让我心安",
+        "uid":9,
+        "username":"Mark Brown",
+        "sex":"男",
+        "address":"广东 汕头"
+      }
+    };
 })
 
 .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
@@ -181,104 +196,6 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers'])
       }
     }
   })
-
-  //“我”界面内的路由设置
-    //设置
-    .state('tab.setting', {
-        url: '/user/setting',
-        views: {
-          'tab-user': {
-            templateUrl: 'cm/app/user/setting/main.html',
-            controller: 'userSettingCtrl'
-          }
-        }
-    })
-    //添加朋友
-    .state('tab.addFriend', {
-      url: '/user/addFriend',
-      views: {
-        'tab-user': {
-          templateUrl: 'cm/app/user/addFriend/main.html',
-          controller: 'userAddFriendCtrl'
-        }
-      }
-    })
-    //我的食谱
-    .state('recipes', {
-      url: '/user/recipes',
-      templateUrl: 'cm/app/user/recipes/main.html',
-      controller: 'userRecipesCtrl'
-    })
-    //我的收藏
-    .state('tab.collections', {
-      url: '/user/collections',
-      views: {
-        'tab-user': {
-          templateUrl: 'cm/app/user/collections/main.html',
-          controller: 'userCollectionsCtrl'
-        }
-      }
-    })
-    //我的订单
-    .state('tab.orders', {
-      url: '/user/orders',
-      views: {
-        'tab-user': {
-          templateUrl: 'cm/app/user/orders/main.html',
-          controller: 'userOrdersCtrl'
-        }
-      }
-    })
-    //我的饭局
-    .state('tab.meal', {
-      url: '/user/meal',
-      views: {
-        'tab-user': {
-          templateUrl: 'cm/app/user/meal/main.html',
-          controller: 'userMealCtrl'
-        }
-      }
-    })
-    //优惠活动
-    .state('tab.activities', {
-      url: '/user/activities',
-      views: {
-        'tab-user': {
-          templateUrl: 'cm/app/user/activities/main.html',
-          controller: 'userActivitiesCtrl'
-        }
-      }
-    })
-    //积分兑换
-    .state('tab.integrals', {
-      url: '/user/integrals',
-      views: {
-        'tab-user': {
-          templateUrl: 'cm/app/user/integrals/main.html',
-          controller: 'userIntegralsCtrl'
-        }
-      }
-    })
-    //关于我们
-    .state('tab.aboutUs', {
-      url: '/user/aboutUs',
-      views: {
-        'tab-user': {
-          templateUrl: 'cm/app/user/aboutUs/main.html',
-          controller: 'userAboutUsCtrl'
-        }
-      }
-    })
-    //意见反馈
-    .state('tab.suggestions', {
-      url: '/user/suggestions',
-      views: {
-        'tab-user': {
-          templateUrl: 'cm/app/user/suggestions/main.html',
-          controller: 'userSuggestionsCtrl'
-        }
-      }
-    })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/cook');
