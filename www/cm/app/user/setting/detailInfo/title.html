@@ -1,11 +1,11 @@
 <!--
-  @“修改个人信息”主界面的标题
+  @“个人信息”主界面的标题
   @作者：dyxm
   @创建时间：2016-03-30
-  @更新时间：2016-03-30
+  @更新时间：2016-03-31
 -->
-<div class="bar bar-header">
-  <a class="button button-clear icon ion-ios-arrow-back" ng-href="#/user/setting" nav-direction="back"></a>
+<div class="bar bar-header" ng-controller="myNavCtrl">
+  <a class="button button-clear icon ion-ios-arrow-back" ng-click="goBack()" nav-direction="back"></a>
   <h1 class="title">个人信息</h1>
   <button class="button button-clear">保存</button>
 </div>

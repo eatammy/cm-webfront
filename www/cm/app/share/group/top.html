@@ -1,0 +1,74 @@
+<!--
+@Created by 丁岳雄 on 2016/3/31.
+@说明：美食圈顶部
+-->
+<style>
+  .s-g-top{
+    height: 300px;
+    position: relative;
+  }
+  .s-g-top .s-g-bgWall{
+    height: 300px;
+  }
+  .s-g-top .s-g-bgWall a{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .s-g-top .s-g-bgWall a img{
+    width: 100%;
+    height: 300px;
+  }
+  .s-g-top .s-g-panel{
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    position: absolute;
+    bottom: 0px;
+    filter:alpha(opacity=80);
+    -moz-opacity:0.8;
+    -khtml-opacity: 0.8;
+    opacity: 0.8;
+  }
+  .s-g-top .s-g-uFace{
+    width: 100%;
+    height: 75px;
+    position: absolute;
+    bottom: 5px;
+  }
+  .s-g-top .s-g-uFace a img{
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin-left: 10px;
+    border: 3px solid #fff;
+    border-radius: 60px;
+    position: absolute;
+    bottom: 0px;
+  }
+  .s-g-top .s-g-uFace p{
+    margin-left: 135px;
+    color: #888;
+  }
+  .s-g-top .s-g-uFace p.s-g-uName{
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ef473a;
+  }
+</style>
+<div class="s-g-top">
+  <div class="s-g-bgWall">
+    <a>
+      <img ng-src="cm/app/share/img/food1.jpg" />
+    </a>
+  </div>
+  <div class="s-g-panel"></div>
+  <div class="s-g-uFace">
+    <a>
+      <img ng-src="cm/app/share/img/touxiang.jpg" />
+    </a>
+    <p class="s-g-uName">丁岳雄</p>
+    <p>只有食物让我心安</p>
+  </div>
+</div>

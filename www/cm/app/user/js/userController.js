@@ -1,4 +1,4 @@
-app
+var userCtrl = angular.module('user.controllers', [])
   //设置
   .controller('userSettingCtrl', function ($scope, $ionicHistory, $state) {
 })
@@ -21,7 +21,7 @@ app
             type: 'button-light',
           },
           {
-            text: '<b>确定</b>',
+            text: '<b>保存</b>',
             type: 'button-assertive',
             onTap: function (e) {
               if (!$scope.data.username) {
@@ -62,7 +62,18 @@ app
   //意见反馈
   .controller('userSuggestionsCtrl', function ($scope, $ionicHistory, $state) {
   })
-
+  //标题返回键
+  .controller('myNavCtrl', function ($scope,$rootScope, $ionicHistory, $state,$ionicNavBarDelegate) {
+    //用户数据
+    $scope.uInfo=$rootScope.uData.userbean;
+    //返回按钮动作
+    $scope.goBack=function(){
+      $ionicHistory.goBack();
+    };
+    //$scope.getPreviousTitle=function(){
+    //  return $ionicNavBarDelegate.getPreviousTitle();
+    //};
+  })
 
 
   //获取前一页的标题
