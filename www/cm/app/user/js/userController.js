@@ -62,19 +62,34 @@ var userCtrl = angular.module('user.controllers', [])
   //意见反馈
   .controller('userSuggestionsCtrl', function ($scope, $ionicHistory, $state) {
   })
-  //标题返回键
-  .controller('myNavCtrl', function ($scope,$rootScope, $ionicHistory, $state,$ionicNavBarDelegate) {
-    //用户数据
-    $scope.uInfo=$rootScope.uData.userbean;
-    //返回按钮动作
-    $scope.goBack=function(){
-      $ionicHistory.goBack();
-    };
-    //$scope.getPreviousTitle=function(){
-    //  return $ionicNavBarDelegate.getPreviousTitle();
-    //};
-  })
+  //查看大图
+  .controller('imgCtrl', function ($scope,$ionicPopover) {
+      $ionicPopover.fromTemplateUrl('cm/app/commonTpl/showBigImgTpl.html', {
+        scope: $scope
+      }).then(function(popover) {
+        $scope.popover = popover;
+      });
 
+      $scope.openPopover = function($event) {
+        //console.log($event);
+        $scope.popover.show();
+      };
+      $scope.closePopover = function() {
+        $scope.popover.hide();
+      };
+      // 清除浮动框
+      $scope.$on('$destroy', function() {
+        $scope.popover.remove();
+      });
+      // 在隐藏浮动框后执行
+      $scope.$on('popover.hidden', function() {
+        // 执行代码
+      });
+      // 移除浮动框后执行
+      $scope.$on('popover.removed', function() {
+        // 执行代码
+      });
+  })
 
   //获取前一页的标题
   //.controller('GetPrevTitleCtrl', function($scope, $ionicNavBarDelegate){

@@ -22,12 +22,12 @@
     height: 50px;
   }
   .s-g-content .card .item-body p.s-g-words{
-    margin-top:0 ;
+    margin-top:-10px ;
     overflow: hidden;
-    /*文字最多显示5行*/
+    /*文字最多显示4行*/
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
   }
   .s-g-content .card .item-body div.row .col img{
@@ -42,6 +42,10 @@
     max-width: 100%;
     width: 100%;
   }
+  .s-g-content .card .tabs a.activated{
+    background: #d9d9d9;
+    color: #444;
+  }
 </style>
 <div class="s-g-content">
 
@@ -51,7 +55,7 @@
       <h2>东岳熊猫</h2>
       <p>11分钟前</p>
     </div>
-    <a class="item item-body" ng-href="#">
+    <a class="item item-body" ng-href="#/share/group/detail/1">
       <p class="s-g-words">
         蒸羊羔,蒸熊掌,蒸鹿尾儿,烧花鸭,烧雏鸡儿,烧子鹅,卤煮咸鸭,酱鸡,腊肉,松花,小肚儿,晾肉,香肠,什锦苏盘,熏鸡,白肚儿,清蒸八宝猪蒸羊羔,蒸熊掌,蒸鹿尾儿,烧花鸭,烧雏鸡儿,烧子鹅,卤煮咸鸭,酱鸡,腊肉,松花,小肚儿,晾肉,香肠,什锦苏盘,熏鸡,白肚儿,清蒸八宝猪蒸羊羔,蒸熊掌,蒸鹿尾儿,烧花鸭,烧雏鸡儿,烧子鹅,卤煮咸鸭,酱鸡,腊肉,松花,小肚儿,晾肉,香肠,什锦苏盘,熏鸡,白肚儿,清蒸八宝猪,江米酿鸭子
       </p>
@@ -88,7 +92,7 @@
         <span class="item-note">|</span>
       </a>
       <a class="tab-item" href="#">
-        <i class="icon ion-heart"></i>
+        <i class="icon ion-android-favorite"></i>
         123
       </a>
     </div>
@@ -99,7 +103,7 @@
       <h2>东岳熊猫</h2>
       <p>11分钟前</p>
     </div>
-    <a class="item item-body" ng-href="#">
+    <a class="item item-body" ng-href="#/share/group/detail/2">
       <p class="s-g-words">
         蒸羊羔,蒸熊掌,蒸鹿尾儿,烧花鸭,烧雏鸡儿,烧子鹅,卤煮咸鸭,酱鸡,腊肉,松花,小肚儿,晾肉,香肠,什锦苏盘,熏鸡,白肚儿,清蒸八宝猪,江米酿鸭子
       </p>
@@ -136,7 +140,7 @@
         <span class="item-note">|</span>
       </a>
       <a class="tab-item" href="#">
-        <i class="icon ion-heart"></i>
+        <i class="icon ion-android-favorite"></i>
         123
       </a>
     </div>
@@ -185,7 +189,7 @@
         <span class="item-note">|</span>
       </a>
       <a class="tab-item" href="#">
-        <i class="icon ion-heart"></i>
+        <i class="icon ion-android-favorite"></i>
         123
       </a>
     </div>

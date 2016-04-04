@@ -11,4 +11,10 @@ angular.module('share.routers', [])
         templateUrl: 'cm/app/share/group/main.html',
         controller: 'shareGroupCtrl'
       })
+      //美食圈正文
+      .state('groupDetail', {
+        url: '/share/group/detail/:id',
+        templateUrl: 'cm/app/share/group/detail/main.html',
+        controller: 'shareGroupDetailCtrl'
+      })
   });

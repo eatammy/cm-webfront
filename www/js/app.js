@@ -10,7 +10,7 @@
  *cordova plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git
  * for return button
  */
-angular.module('starter', ['ionic','ngCordova','starter.controllers','share.controllers','share.routers',
+angular.module('starter', ['ionic','ngCordova','starter.controllers','starter.services','share.controllers','share.routers',
   'user.controllers','user.routers'])
 .run(function($ionicPlatform, $rootScope, $location, $timeout, $ionicHistory,$cordovaToast,$cordovaKeyboard,$ionicPopup) {
     $ionicPlatform.ready(function() {
