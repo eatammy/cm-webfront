@@ -1,0 +1,73 @@
+<!--
+  @“发现”的主界面
+  @作者：dyxm
+  @创建时间：2016-03-15
+  @更新时间：2016-03-29
+-->
+<style>
+    .s-row-div .col {
+        height: 200px;
+        margin: 5px;
+        text-align: center;
+        border-radius: 40px;
+    }
+    .s-row-div .col a{
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      padding-top: 30px;
+    }
+    .s-row-div .col a img {
+        display: block;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        border-radius: 50px;
+    }
+    .s-row-div .col a p {
+        height: 60px;
+        line-height: 65px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+</style>
+
+<ion-view>
+    <ion-nav-title class="text-center">
+        <ng-include src="'cm/app/share/title.html'"></ng-include>
+    </ion-nav-title>
+    <ion-content  class="stable-bg" on-swipe-left="onSwipeLeft()" on-swipe-right="onSwipeRight()">
+        <div>
+            <div class="row s-row-div">
+                <div class="col assertive-bg">
+                  <a ng-href="#/share/group" nav-direction="forward">
+                    <img src="cm/app/share/img/touxiang.jpg"/>
+                    <p>美食圈</p>
+                  </a>
+                </div>
+                <div class="col assertive-bg">
+                  <a ng-href="#">
+                    <img src="cm/app/share/img/touxiang.jpg"/>
+                    <p>食光轴</p>
+                  </a>
+                </div>
+            </div>
+            <div class="row s-row-div">
+                <div class="col assertive-bg">
+                  <a ng-href="#">
+                    <img src="cm/app/share/img/touxiang.jpg"/>
+                    <p>美食忆文</p>
+                  </a>
+                </div>
+                <div class="col assertive-bg">
+                  <a ng-href="#">
+                    <img src="cm/app/share/img/touxiang.jpg"/>
+                    <p>美食社区</p>
+                  </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

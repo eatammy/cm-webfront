@@ -1,0 +1,17 @@
+<!--
+@Created by 丁岳雄 on 2016/4/4.
+@说明：美食圈正文
+-->
+<ion-view>
+  <ion-nav-bar class="bar-assertive">
+    <ion-nav-title>
+      <ng-include src="'cm/app/share/group/detail/title.html'"></ng-include>
+    </ion-nav-title>
+  </ion-nav-bar>
+
+  <ion-content class="stable-bg has-footer" ng-controller="shareGroupDetailCtrl">
+    <ng-include src="'cm/app/share/group/detail/detail.html'"></ng-include>
+    <ng-include src="'cm/app/share/group/detail/allComments.html'"></ng-include>
+  </ion-content>
+  <ng-include src="'cm/app/share/group/detail/footer.html'"></ng-include>
+</ion-view>
