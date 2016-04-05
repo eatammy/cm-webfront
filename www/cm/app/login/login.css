@@ -1,0 +1,79 @@
+.l-body{
+  background-color: #fc6351;
+}
+.l-logo{
+  text-align: center;
+}
+.l-logoImg{
+  margin: 0 auto;padding: 0;
+}
+.l-loginBox{
+  margin-top:20px;
+}
+#l-list{
+  margin-bottom: 5px;
+}
+.l-forgetP{
+  float: right;
+  margin-right: 10px;
+  color: #000000;
+  text-decoration: none;
+}
+#l-loginBtn{
+  width:200px;
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 40px;
+}
+#l-registerBtn,#l-signIn,#changePW{
+  width:200px;
+  margin: 0 auto;
+  padding: 0;
+  margin-top:10px;
+}
+#l-lineLeft{
+  float:left;
+  margin-top:50px;
+  padding:0;
+  width:50px;
+  height:1px;
+  background-color:#303030;
+  overflow:hidden;
+}
+#l-lineRight{
+  float:left;
+  margin-top:50px;
+  padding:0;
+  width:50px;
+  height:1px;
+  background-color:#303030;
+  overflow:hidden;
+}
+.l-lineText{
+  float:left;
+  margin-top:40px;
+  margin-right:5px;
+  margin-left:5px;
+  padding:0;
+}
+.l-threeImg{
+  width: 60px;
+  height: 60px;
+}
+#l-threeLogin{
+  text-align: center;
+}
+#l-a1,#l-a2,#l-a3{
+  margin: 0 auto;
+  padding: 0;
+}
+.l-title{
+  color: #ffffff;
+}
+.l-findList{
+  margin-top: 100px;
+}
+#l-getCheckWord{
+  width: 150px;
+  margin-right: 10px;
+}

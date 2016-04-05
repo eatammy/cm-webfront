@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>登录</title>
+    <link href="../../../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../../../css/style.css" rel="stylesheet">
+
+    <link href="../cook/css/main.css" rel="stylesheet">
+    <link href="login.css" rel="stylesheet">
+
+
+    <script src="../../../lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="../../../lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="../../../js/app.js"></script>
+    <script src="../../../js/controllers.js"></script>
+
+    <script src="../cook/js/main.js"></script>
+
+</head>
+<body class="l-body">
+    <div class="l-logo">
+        <img src="image/logo.png" class="l-logoImg">
+    </div>
+
+    <div class="l-loginBox">
+      <div class="list list-inset" id="l-list">
+        <label class="item item-input">
+          <i class="icon ion-android-contact placeholder-icon"></i>
+          <input type="text" placeholder="用户名">
+        </label>
+        <label class="item item-input">
+          <i class="icon ion-ios-locked placeholder-icon"></i>
+          <input type="text" placeholder="密码">
+        </label>
+      </div>
+      <a class="l-forgetP" href="#">忘记密码？</a>
+    </div>
+
+
+    <div class="l-logo">
+      <button class="col col-30 button button-energized" id="l-loginBtn">登录</button>
+      <button class="col col-30 button button-outline  button-energized" id="l-registerBtn">注册</button>
+    </div>
+
+
+    <div class="row">
+        <div class="col col-30" id="l-lineLeft"></div>
+        <div class="l-lineText">使用第三方账号登录</div>
+        <div class="col col-30" id="l-lineRight"></div>
+    </div>
+    <div class="row" id="l-threeLogin">
+      <a href="#" class="col col-20" id="l-a1"><img class="l-threeImg" src="image/wechat.png"></a>
+      <a href="#" class="col col-20" id="l-a2"><img class="l-threeImg" src="image/qq.png"></a>
+      <a href="#" class="col col-20" id="l-a3"><img class="l-threeImg" src="image/weibo.png"></a>
+    </div>
+</body>
+</html>
