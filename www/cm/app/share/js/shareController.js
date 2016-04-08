@@ -8,3 +8,5 @@ var shareCtrl = angular.module('share.controllers', [])
   //美食圈正文
   .controller('shareGroupDetailCtrl', function ($scope, $ionicHistory, $state) {
   })
+  .controller('shareMemoryCtrl', function ($scope, $ionicHistory, $state) {
+  })

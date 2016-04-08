@@ -17,4 +17,10 @@ angular.module('share.routers', [])
         templateUrl: 'cm/app/share/group/detail/main.html',
         controller: 'shareGroupDetailCtrl'
       })
+      //美食忆文
+      .state('memory', {
+        url: '/share/memory',
+        templateUrl: 'cm/app/share/memory/main.html',
+        controller: 'shareMemoryCtrl'
+      })
   });
