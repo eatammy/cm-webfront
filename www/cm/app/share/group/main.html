@@ -1,0 +1,17 @@
+<!--
+  @“美食圈”的主界面
+  @作者：丁岳雄
+  @创建时间：2016-03-31
+-->
+<ion-view>
+  <ion-nav-bar class="bar-assertive">
+    <ion-nav-title>
+      <ng-include src="'cm/app/share/group/title.html'"></ng-include>
+    </ion-nav-title>
+  </ion-nav-bar>
+
+  <ion-content class="stable-bg" ng-controller="shareGroupCtrl">
+    <ng-include src="'cm/app/share/group/top.html'"></ng-include>
+    <ng-include src="'cm/app/share/group/content.html'"></ng-include>
+  </ion-content>
+</ion-view>

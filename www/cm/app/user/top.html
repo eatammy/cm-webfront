@@ -1,51 +1,58 @@
+<!--
+  @“我”的主界面的顶部
+  @作者：dyxm
+  @创建时间：2016-03-15
+  @更新时间：2016-03-17
+-->
 <style>
-  .info-box{
-    padding:10px 10px 20px 10px;
-    height: 150px;
-    color: #ffffff;
-  }
-  .info-box .face{
-    width: 40%;
-    float: left;
-    text-align: right;
-  }
-  .info-box .face a img{
-    width: 110px;
-    height: 110px;
-    border-radius: 55px;
-  }
-  .info-box .info{
-    width: 60%;
-    padding: 10px;
-    float: left;
-  }
-  .info-box .info p{
-    text-align: center;
-  }
-  .info-box .info p strong{
-    padding: 0 10px;
-    display: inline-block;
-    vertical-align: top;
-  }
-  .info-box .info p strong span{
-    display: block;
-    font-size: 10px;
-    font-weight: normal;
-  }
+    .u-info-box{
+        padding:10px 10px 20px 10px;
+        height: 150px;
+        color: #ffffff;
+    }
+    .u-info-box .u-face{
+        width: 40%;
+        float: left;
+        text-align: right;
+    }
+    .u-info-box .u-face a img{
+        width: 110px;
+        height: 110px;
+        border: 2px solid #ffffff;
+        border-radius: 55px;
+    }
+    .u-info-box .u-info{
+        width: 60%;
+        padding: 10px;
+        float: left;
+    }
+    .u-info-box .u-info p{
+        text-align: center;
+    }
+    .u-info-box .u-info p strong{
+        padding: 0 10px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .u-info-box .u-info p strong span{
+        display: block;
+        font-size: 10px;
+        font-weight: normal;
+    }
 </style>
 
-<div class="info-box assertive-bg">
-  <div class="face">
-    <a class="" href="#">
-      <img src="./img/ben.png">
-    </a>
-  </div>
-  <div class="info">
-    <p><strong>东岳熊猫</strong></p>
-    <p>
-      <strong>123<span>关注</span></strong> |
-      <strong>123<span>粉丝</span></strong>
-    </p>
-    <p>只有食物能让我安心</p>
-  </div>
+<div class="u-info-box assertive-bg" ng-controller="userCtrl">
+    <div class="u-face">
+        <a ng-controller="imgCtrl">
+            <img ng-src="{{uInfo.headIcon}}" ng-click="openPopover($event)" />
+        </a>
+    </div>
+    <div class="u-info">
+        <p><strong ng-bind="uInfo.username"></strong></p>
+        <p>
+            <strong><span ng-bind="uInfo.attentions"></span><span>关注</span></strong> |
+            <strong><span ng-bind="uInfo.funs"></span><span>粉丝</span></strong>
+        </p>
+        <p ng-bind="uInfo.uWords"></p>
+    </div>
 </div>

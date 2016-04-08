@@ -15,14 +15,31 @@ app.controller('imgSliderCtrl',function($scope,$ionicSlideBoxDelegate){
     };
 
     //这是属性delegate-handle的验证使用的，其实没必要重定义，直接使用$ionicSlideBoxDelegate就可以
-    $scope.delegateHandlerTwo = $ionicSlideBoxDelegate;
+    $scope.delegateHandler = $ionicSlideBoxDelegate;
 
     $scope.onTouch = function(){
-        onImgSlider = true;
-        $ionicSlideBoxDelegate.$getByHandle('delegateHandlerOne').enableSlide(false);
+
     }
     $scope.onRelease = function(){
-        onImgSlider = false;
-        $ionicSlideBoxDelegate.$getByHandle('delegateHandlerOne').enableSlide(true);
+
     }
-});
+})
+
+.controller("c-loadmoreCtrl",function($scope,$http){
+    $scope.moredata=true;
+    var isloading = false;
+
+    $scope.loadMore = function(){
+        if(!isloading){
+            isloading=true;
+            setTimeout(function(){
+                document.getElementById("hh").innerHTML += document.getElementById("dd").innerHTML;
+                $scope.moredata=false;
+                isloading = false;
+                $scope.$broadcast('scroll.infiniteScrollComplete');
+            },3000);
+        }else{
+
+        }
+    }
+})

@@ -1,0 +1,61 @@
+<!--
+  @“修改个人信息”的主界面
+  @作者：dyxm
+  @创建时间：2016-03-30
+  @更新时间：2016-03-30
+-->
+<style>
+  .u-s-d-face{
+    padding:10px 10px 20px 10px;
+    height: 150px;
+    text-align: center;
+  }
+  .u-s-d-face a img{
+    width: 100px;
+    height: 100px;
+    border: 3px solid #fff;
+    border-radius: 50px;
+  }
+</style>
+
+<ion-view>
+  <ion-nav-bar class="bar-assertive">
+    <ion-nav-title>
+      <ng-include src="'cm/app/user/setting/detailInfo/title.html'"></ng-include>
+    </ion-nav-title>
+  </ion-nav-bar>
+
+  <ion-content class="stable-bg" ng-controller="userDetailInfoCtrl">
+    <div class="assertive-bg u-s-d-face">
+      <a class="" href="#">
+        <img ng-src="{{uInfo.headIcon}}" />
+      </a>
+    </div>
+    <div class="list padding-top">
+      <a class="item item-icon-left item-icon-right" ng-click="showAlterNamePopup()">
+        <i class="icon ion-ios-person"></i>
+        昵称
+        <span class="item-note" ng-bind="uInfo.username"></span>
+        <i class="icon ion-ios-arrow-forward"></i>
+      </a>
+      <a class="item item-icon-left item-icon-right">
+        <i class="icon ion-female"></i>
+        性别
+        <span class="item-note" ng-bind="uInfo.sex"></span>
+        <i class="icon ion-ios-arrow-forward"></i>
+      </a>
+      <a class="item item-icon-left item-icon-right">
+        <i class="icon ion-ios-location"></i>
+        位置
+        <span class="item-note" ng-bind="uInfo.address"></span>
+        <i class="icon ion-ios-arrow-forward"></i>
+      </a>
+      <a class="item item-icon-left item-icon-right">
+        <i class="icon ion-ios-pricetag"></i>
+        吃货宣言
+        <span class="item-note" ng-bind="uInfo.uWords"></span>
+        <i class="icon ion-ios-arrow-forward"></i>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>
