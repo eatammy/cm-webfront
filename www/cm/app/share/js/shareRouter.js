@@ -17,10 +17,42 @@ angular.module('share.routers', [])
         templateUrl: 'cm/app/share/group/detail/main.html',
         controller: 'shareGroupDetailCtrl'
       })
+      //个人主页
+      .state('personal', {
+        params:{"uid":null},
+        url: '/share/personal/:id',
+        templateUrl: 'cm/app/share/personal/main.html',
+        controller: 'sharePersonalCtrl'
+      })
       //美食忆文
       .state('memory', {
         url: '/share/memory',
         templateUrl: 'cm/app/share/memory/main.html',
         controller: 'shareMemoryCtrl'
+      })
+
+      //个人主页的tabs
+      .state('personalTabs', {
+        url: '/share/personal/content',
+        abstract: true,
+        templateUrl: 'cm/app/share/personal/main.html'
+      })
+      .state('personalTabs.memory', {
+        url: '/share/personalTabsMemory',
+        views: {
+          'personalTabs-memory': {
+            templateUrl: 'cm/app/share/personal/tabPages/personalTabsMemory.html',
+            controller: 'shareMemoryCtrl'
+          }
+        }
+      })
+      .state('personalTabs.group', {
+        url: '/share/personalTabsGroup',
+        views: {
+          'personalTabs-group': {
+            templateUrl: 'cm/app/share/personal/tabPages/personalTabsGroup.html',
+            controller: 'shareGroupCtrl'
+          }
+        }
       })
   });

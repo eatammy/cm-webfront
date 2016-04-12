@@ -24,27 +24,20 @@ var app = angular.module('starter.controllers', [])
     };
 })
 
-.controller('userCtrl', function ($scope, $rootScope,$ionicHistory, $state,$http,userService) {
+.controller('userCtrl', function ($scope,$ionicHistory, $state,$http,userService,localStorageService) {
     $scope.onSwipeRight = function() {
       $state.go("tab.share");
     };
     //测试数据
-    //$scope.uInfo=userService.getOneUser(1);
-    //console.log($scope.uInfo.address);
-    $scope.uInfo=$rootScope.uData.userbean;
-    //console.log($scope.uInfo);
-   /* $http.get('/cm/app/user/queryOne',{params:{id:1}
-    }).success(function(data,status){
-      //$scope.uInfo=data.userbean;
-    }).error(function(data,status){
-      //错误时执行的代码
-    });*/
-
+    $http.get("../testData/userData.json").then(function(response) {
+      userService.initUser(response.data.userbean);
+    });
+    $scope.uInfo=localStorageService.get('userbean');
 })
   //标题返回键
-  .controller('myNavCtrl', function ($scope,$rootScope, $ionicHistory, $state,$ionicNavBarDelegate) {
+  .controller('myNavCtrl', function ($scope, $ionicHistory,localStorageService, $state,$ionicNavBarDelegate) {
     //用户数据
-    $scope.uInfo=$rootScope.uData.userbean;
+    $scope.uInfo=localStorageService.get('userbean');
     //返回按钮动作
     $scope.goBack=function(){
       $ionicHistory.goBack();

@@ -60,15 +60,15 @@
 <div class="s-g-top">
   <div class="s-g-bgWall">
     <a>
-      <img ng-src="cm/app/share/img/food1.jpg" />
+      <img ng-src="{{uInfo.groupBg}}" />
     </a>
   </div>
   <div class="s-g-panel"></div>
   <div class="s-g-uFace">
     <a>
-      <img ng-src="cm/app/share/img/touxiang.jpg" />
+      <img ng-src="{{uInfo.headIcon}}" ng-click="goToPersonal(uInfo.uid)" />
     </a>
-    <p class="s-g-uName">丁岳雄</p>
-    <p>只有食物让我心安</p>
+    <p class="s-g-uName" ng-bind="uInfo.username"></p>
+    <p ng-bind="uInfo.uWords">只有食物让我心安</p>
   </div>
 </div>

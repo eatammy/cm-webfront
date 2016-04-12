@@ -1,0 +1,36 @@
+<!--
+@Created by 丁岳雄 on 2016/4/8.
+@说明：美食圈个人主页 主要内容部分
+-->
+<style>
+  .s-p-tabs > .tabs{
+    top: 300px;
+  }
+  .s-p-tabs .tabs a{
+    font-size: 18px;
+    font-weight: bold;
+    max-width: 100%;
+  }
+</style>
+<div ng-controller="shareGroupCtrl">
+  <ng-include src="'cm/app/share/group/top.html'"></ng-include>
+
+  <ion-tabs class="tabs-striped tabs-top tabs-color-assertive s-p-tabs">
+    <ion-tab title="食谱" ui-sref="personalTabs.recipes">
+      <ion-nav-view animation="slide-left-right" name="personalTabs-recipes" style="margin-top: 40px;"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="美食圈" ui-sref="personalTabs.group">
+      <ion-nav-view animation="slide-left-right" name="personalTabs-group" style="margin-top: 40px;"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="美食忆文" ui-sref="personalTabs.memory">
+      <ion-nav-view animation="slide-left-right" name="personalTabs-memory" style="margin-top: 40px;"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="食光轴" ui-sref="personalTabs.timmer">
+      <ion-nav-view animation="slide-left-right" name="personalTabs-timer" style="margin-top: 40px"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
+</div>
+

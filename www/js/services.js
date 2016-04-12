@@ -27,15 +27,18 @@ angular.module('starter.services', [])
   }])
 
   //获取用户信息
-  .factory("userService", function($http) {
-    var userData = {};
+  .factory("userService", function($http,localStorageService) {
     return {
-      getOneUser: function(id) {
-        //return $http.get("/cm/app/user/queryOne',{params:{id:id}}).then(function(response) {
+      //获取id号为uid的用户的信息
+      getOneUser: function(uid) {
+        //return $http.get("/cm/app/user/queryOne',{params:{id:uid}}).then(function(response) {
         return $http.get("../testData/userData.json").then(function(response) {
-          userData=response.data.userbean;
           return response.data.userbean;
         });
+      },
+      //初始化用户信息存到本地
+      initUser:function(userbean){
+        localStorageService.update('userbean',userbean);
       }
     };
   })
