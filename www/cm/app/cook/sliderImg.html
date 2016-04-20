@@ -1,0 +1,25 @@
+<!--
+@Created by 丁岳雄 on 2016/4/20.
+@说明：首页轮播图片
+-->
+<div ng-controller="imgSliderCtrl" on-touch="onTouch()" on-release="onRelease()">
+  <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true"
+                 slide-interval="3000" show-pager="true" pager-click="pageClick(index)"
+                 active-slide="model.activeIndex" delegate-handle="delegateHandler">
+    <ion-slide>
+      <div class="c-img">
+        <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="c-img">
+        <img src="http://img.iyookee.cn/20150619/20150619_100607_883_670.png">
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="c-img">
+        <img src="http://img.iyookee.cn/20150714/20150714_172952_955_22.jpg">
+      </div>
+    </ion-slide>
+  </ion-slide-box>
+</div>

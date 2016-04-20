@@ -1,67 +1,193 @@
-<div ng-controller="imgSliderCtrl" on-touch="onTouch()" on-release="onRelease()">
-    <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true"
-                   slide-interval="3000" show-pager="true" pager-click="pageClick(index)"
-                   active-slide="model.activeIndex" delegate-handle="delegateHandler">
-        <ion-slide>
-            <div class="c-img">
-                <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-            </div>
-        </ion-slide>
-        <ion-slide>
-            <div class="c-img">
-                <img src="http://img.iyookee.cn/20150619/20150619_100607_883_670.png">
-            </div>
-        </ion-slide>
-        <ion-slide>
-            <div class="c-img">
-                <img src="http://img.iyookee.cn/20150714/20150714_172952_955_22.jpg">
-            </div>
-        </ion-slide>
-    </ion-slide-box>
-</div>
-<div class="row text-center" id="c-psf">
-    <div class="col">
-        <div class="row">
-            <div class="col"><img src="cm/app/cook/img/paixing.png"/></div>
-        </div>
-        <div class="row">
-            <div class="col"><p>排行</p></div>
-        </div>
+<!--<div class="row text-center" id="c-psf">-->
+    <!--<div class="col">-->
+        <!--<div class="row">-->
+            <!--<div class="col"><img src="cm/app/cook/img/paixing.png"/></div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="col"><p>排行</p></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col">-->
+        <!--<div class="row">-->
+            <!--<div class="col"><img src="cm/app/cook/img/shimie.png"/></div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="col"><p>食咩</p></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col">-->
+        <!--<div class="row">-->
+            <!--<div class="col"><img src="cm/app/cook/img/fenlei.png"/></div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="col"><p>分类</p></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="c-gray text-center" ng-controller="c-loadmoreCtrl">-->
+    <!--<span><b>·</b>最新美食<b>·</b></span>-->
+    <!--<div id="dd">-->
+        <!--<div class="c-img" style="position: relative;">-->
+            <!--<img src="cm/app/cook/img/food.jpg"/>-->
+            <!--<span class="c-signature">芒果椰奶慕斯&nbsp;浓浓香芒~</span>-->
+            <!--<img src="cm/app/cook/img/touxiang.jpg" class="c-headPhoto"/>-->
+        <!--</div>-->
+        <!--<span class="c-bottom">-->
+            <!--<i class="icon ion-ios-chatbubble-outline"></i>&nbsp;<text>100</text>-->
+            <!--<i class="icon ion-ios-heart-outline"></i>&nbsp;<text>59</text>-->
+            <!--<span class="c-username">郑永朗</span>-->
+        <!--</span>-->
+    <!--</div>-->
+    <!--<div id="hh"></div>-->
+    <!--<ion-infinite-scroll ng-if="moredata" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>-->
+    <!--&lt;!&ndash;<div style="margin-top: 10px;"><i class="icon ion-chevron-down"></i></div>&ndash;&gt;-->
+<!--</div>-->
+<style>
+  .c-content .c-content-topText{
+    margin-top: 10px;
+    text-align: center;
+    color: #7B7C7C;
+    font-size: 15px;
+    font-family: "黑体";
+  }
+  .c-content .c-content-list{
+    margin-top: 10px;
+    position: relative;
+    display: block;
+  }
+  .c-content .c-content-list:last-child{
+    margin-bottom: 20px;
+  }
+  .c-content .c-content-list img{
+    height: 250px;
+    width: 100%;
+    padding: 0;
+  }
+  .c-content .c-content-backdrop,.c-content .c-content-infoDiv{
+    width: 100%;
+    height: 90px;
+    position: absolute;
+    bottom: 47px;
+  }
+  .c-content .c-content-list .c-content-backdrop{
+    z-index:2;
+    background: black;
+    filter:alpha(opacity=40);
+    -moz-opacity:0.4;
+    -khtml-opacity: 0.4;
+    opacity: 0.4;
+  }
+  .c-content .c-content-list .c-content-infoDiv{
+    z-index:3;
+  }
+  .c-content .c-content-list .c-content-infoDiv h4,.c-content .c-content-list .c-content-infoDiv p,.c-content .c-content-list .c-content-infoDiv .item-note{
+    color: #efefef;
+    margin: 0;
+    padding: 5px 10px;
+  }
+  .c-content .c-content-list .c-content-infoDiv img{
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    position: absolute;
+    bottom: 60px;
+    right: 22px;
+  }
+  .c-content .c-content-list .c-content-infoDiv p{
+    height: 48px;
+    padding-right: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .c-content .c-content-list .c-content-infoDiv .item-note{
+    padding:5px 0;
+    font-size: 12px;
+    width: 100px;
+    text-align: center;
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  .c-content .c-content-list .c-content-tabs{
+    padding-bottom: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  .c-content .c-content-list .c-content-tabs .tab-item{
+    max-width: 100%;
+  }
+</style>
+<div class="c-content">
+  <div class="c-content-topText">
+    <b>·</b> 4月10日 星期日 <b>·</b>
+  </div>
+  <a class="c-content-list" ng-href="#/cook/recipeDetail" nav-direction="forward">
+    <img src="cm/app/business/img/2.jpg">
+    <div class="c-content-backdrop"></div>
+    <div class="c-content-infoDiv">
+      <h4>芒果慕斯</h4>
+      <img src="cm/app/cook/img/touxiang.jpg">
+      <p>自制超好吃的芒果慕斯，吃了还想吃，根本停不下来~~自制超好吃的芒果慕斯，吃了还想吃，根本停不下来~~</p>
+      <span class="item-note">东岳熊猫</span>
     </div>
-    <div class="col">
-        <div class="row">
-            <div class="col"><img src="cm/app/cook/img/shimie.png"/></div>
-        </div>
-        <div class="row">
-            <div class="col"><p>食咩</p></div>
-        </div>
+    <div class="c-content-tabs tabs tabs-icon-right">
+      <botton class="tab-item">
+        <i class="icon ion-chatbox-working"></i>
+        123
+      </botton>
+      <botton class="tab-item">
+        <i class="icon ion-android-favorite"></i>
+        123
+      </botton>
     </div>
-    <div class="col">
-        <div class="row">
-            <div class="col"><img src="cm/app/cook/img/fenlei.png"/></div>
-        </div>
-        <div class="row">
-            <div class="col"><p>分类</p></div>
-        </div>
-    </div>
-</div>
+  </a>
 
-<div class="c-gray text-center" ng-controller="c-loadmoreCtrl">
-    <span><b>·</b>最新美食<b>·</b></span>
-    <div id="dd">
-        <div class="c-img" style="position: relative;">
-            <img src="cm/app/cook/img/food.jpg"/>
-            <span class="c-signature">芒果椰奶慕斯&nbsp;浓浓香芒~</span>
-            <img src="cm/app/cook/img/touxiang.jpg" class="c-headPhoto"/>
-        </div>
-        <span class="c-bottom">
-            <i class="icon ion-ios-chatbubble-outline"></i>&nbsp;<text>100</text>
-            <i class="icon ion-ios-heart-outline"></i>&nbsp;<text>59</text>
-            <span class="c-username">郑永朗</span>
-        </span>
+  <a class="c-content-list">
+    <img src="cm/app/business/img/3.jpg">
+    <div class="c-content-backdrop"></div>
+    <div class="c-content-infoDiv">
+      <h4>芒果慕斯</h4>
+      <img src="cm/app/cook/img/touxiang.jpg">
+      <p>自制超好吃的芒果慕斯，吃了还想吃，根本停不下来~~自制超好吃的芒果慕斯，吃了还想吃，根本停不下来~~</p>
+      <span class="item-note">东岳熊猫</span>
     </div>
-    <div style="height: 20px;"></div>
-    <div id="hh"></div>
-    <ion-infinite-scroll ng-if="moredata" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
-    <div style="margin-top: 10px;"><i class="icon ion-chevron-down"></i></div>
+    <div class="c-content-tabs tabs tabs-icon-right">
+      <botton class="tab-item">
+        <i class="icon ion-chatbox-working"></i>
+        0
+      </botton>
+      <botton class="tab-item">
+        <i class="icon ion-android-favorite"></i>
+        12
+      </botton>
+    </div>
+  </a>
+
+  <a class="c-content-list">
+    <img src="cm/app/business/img/4.jpg">
+    <div class="c-content-backdrop"></div>
+    <div class="c-content-infoDiv">
+      <h4>芒果慕斯</h4>
+      <img src="cm/app/cook/img/touxiang.jpg">
+      <p>自制超好吃的芒果慕斯，吃了还想吃，根本停不下来~~自制超好吃的芒果慕斯，吃了还想吃，根本停不下来~~</p>
+      <span class="item-note">东岳熊猫</span>
+    </div>
+    <div class="c-content-tabs tabs tabs-icon-right">
+      <botton class="tab-item">
+        <i class="icon ion-chatbox-working"></i>
+        3
+      </botton>
+      <botton class="tab-item">
+        <i class="icon ion-android-favorite"></i>
+        13
+      </botton>
+    </div>
+  </a>
 </div>
