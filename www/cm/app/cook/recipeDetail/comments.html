@@ -1,0 +1,84 @@
+<!--
+@Created by 丁岳雄 on 2016/4/21.
+@说明：食谱详情  评论页面
+-->
+<style>
+  .c-rd-comments{
+    margin-top: 10px;
+  }
+  .c-rd-comments .item-divider{
+    padding-top: 20px;
+    padding-bottom: 14px;
+    font-weight: bold;
+    border:none ;
+  }
+  .c-rd-comments .item-divider button{
+    font-weight: normal;
+    float: right;
+    margin: 0;
+    padding: 0 15px;
+  }
+  .c-rd-comments .item-divider span i{
+    padding-right: 5px;
+    font-size: 25px;
+    vertical-align: middle;
+  }
+  .c-rd-comments .item-thumbnail-left{
+    background: #f9f9f9;
+  }
+  .c-rd-comments .item-thumbnail-left h2{
+    font-weight: bold;
+    color: #333;
+  }
+  .c-rd-comments .item-thumbnail-left .c-rd-commentsTime{
+    font-size: 12px;
+    color: #aaa;
+    padding: 3px 0;
+  }
+  .c-rd-comments .item-thumbnail-left .c-rd-commentsWords{
+    overflow:visible;
+    text-overflow: clip;
+    white-space:normal;
+  }
+  .c-rd-comments .c-rd-commentsMore{
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+  }
+</style>
+<div class="list c-rd-comments">
+
+  <div class="item item-divider">
+    全部评论
+    <button class="button button-small button-outline icon icon-left button-assertive ion-android-favorite-outline"> 123</button>
+  </div>
+
+  <div class="item item-thumbnail-left" href="#">
+    <img ng-src="http://7vijoa.com1.z0.glb.clouddn.com/img7.jpg">
+    <h2>郭旭辉</h2>
+    <p class="c-rd-commentsTime">4月1号 19:21</p>
+    <p class="c-rd-commentsWords">
+      好吃！
+    </p>
+  </div>
+  <div class="item item-thumbnail-left" href="#">
+    <img ng-src="http://7vijoa.com1.z0.glb.clouddn.com/img7.jpg">
+    <h2>郭旭辉</h2>
+    <p class="c-rd-commentsTime">4月1号 19:21</p>
+    <p class="c-rd-commentsWords">
+     不错，值得一试！
+    </p>
+  </div>
+  <div class="item item-thumbnail-left" href="#">
+    <img ng-src="http://7vijoa.com1.z0.glb.clouddn.com/img7.jpg">
+    <h2>郭旭辉</h2>
+    <p class="c-rd-commentsTime">4月1号 19:21</p>
+    <p class="c-rd-commentsWords">
+      超级好吃！
+    </p>
+  </div>
+
+  <a class="item c-rd-commentsMore" href="">
+    查看更多&gt;&gt;
+  </a>
+</div>
