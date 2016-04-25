@@ -1,0 +1,88 @@
+<!--
+@Created by 丁岳雄 on 2016/4/25.
+@说明：添加食谱   添加封面图片、标题、简介、用料部分
+-->
+<style>
+  .tempText{
+    color: #cccccc;
+  }
+  .c-add-coverImage{
+    height: 200px;
+  }
+  .c-add-coverImage img{
+    height: 200px;
+    width: 100%;
+  }
+  .c-add-divider{
+    font-size: 18px;
+    font-weight: normal;
+    color: rgba(239, 71, 58, 0.5);
+  }
+  .c-add-divider button{
+    border-radius: 0;
+    padding: 0 7px;
+    float: right;
+  }
+  .c-add-title,.c-add-sum{
+    min-height: 90px;
+  }
+  .c-add-title h4{
+    min-height: 25px;
+    font-weight: bold;
+  }
+  .c-add-material .row{
+    background: #fcfcfc;
+  }
+  .c-add-material .row .col .item{
+    border: none;
+    background: #fcfcfc;
+  }
+  .c-add-material .row .col .item input{
+    background: #fcfcfc;
+  }
+</style>
+<div class="c-add-coverImage">
+  <!--<a ng-href="">-->
+    <!--<i class="icon ion-camera light"></i>-->
+  <!--</a>-->
+  <img src="cm/app/cook/img/addImage.png">
+</div>
+
+<div class="padding c-add-title">
+  <h3 class="c-add-divider">标题<button class="button button-small button-clear button-assertive icon ion-edit"></button></h3>
+  <h4 class="tempText">请添加一个标题...</h4>
+</div>
+
+<div class="padding c-add-sum">
+  <h3 class="c-add-divider">简介<button class="button button-small button-clear button-assertive icon ion-edit"></button></h3>
+  <p class="tempText">请添加一段简介...</p>
+</div>
+
+<div class="padding-top padding-bottom c-add-material">
+  <h3 class="padding-left c-add-divider">用料</h3>
+  <div class="row">
+    <div class="col">
+      <label class="item item-input">
+        <input type="text" placeholder="例：盐" readonly>
+      </label>
+    </div>
+    <div class="col">
+      <label class="item item-input">
+        <input type="text" placeholder="10g" readonly>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label class="item item-input">
+        <input type="text" placeholder="例：盐" readonly>
+      </label>
+    </div>
+    <div class="col">
+      <label class="item item-input">
+        <input type="text" placeholder="10g" readonly>
+      </label>
+    </div>
+  </div>
+  <p class="padding c-add-divider"><button class="button button-small button-clear button-assertive icon ion-plus"></button></p>
+</div>

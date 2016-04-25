@@ -6,3 +6,7 @@ var cookCtrl = angular.module('cook.controllers', [])
   .controller('recipeDetailCtrl', function ($scope, $ionicHistory, $state) {
 
   })
+  //添加食谱
+  .controller('addRecipeCtrl', function ($scope, $ionicHistory, $state) {
+
+  })

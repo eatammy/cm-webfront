@@ -6,53 +6,68 @@
 -->
 <style>
     .u-info-box{
-        padding:10px 10px 20px 10px;
-        height: 150px;
-        color: #ffffff;
+      height: 182px;
+      color: #ffffff;
     }
     .u-info-box .u-face{
-        width: 40%;
-        float: left;
-        text-align: right;
+      padding: 10px 0;
+      width: 40%;
+      float: left;
+      text-align: right;
     }
     .u-info-box .u-face a img{
-        width: 110px;
-        height: 110px;
-        border: 2px solid #ffffff;
-        border-radius: 55px;
+      width: 110px;
+      height: 110px;
+      border: 2px solid #ffffff;
+      border-radius: 55px;
     }
     .u-info-box .u-info{
-        width: 60%;
-        padding: 10px;
-        float: left;
+      width: 60%;
+      padding: 20px 10px;
+      float: left;
     }
     .u-info-box .u-info p{
-        text-align: center;
+      text-align: center;
     }
-    .u-info-box .u-info p strong{
-        padding: 0 10px;
-        display: inline-block;
-        vertical-align: top;
+    .u-info-box .u-fans{
+      padding: 0;
+      clear: both;
+      background: rgba(0,0,0,0.4);
     }
-    .u-info-box .u-info p strong span{
-        display: block;
-        font-size: 10px;
-        font-weight: normal;
+    .u-info-box .u-fans .button{
+      padding: 0;
+      color: #f2f2f2;
+      font-size: 12px;
+      line-height: 22px;
+      display: block;
+      border-radius: 0;
+      background: rgba(0,0,0,0.2);
+    }
+    .u-info-box .u-fans .button span{
+      color: #ffffff;
+      display: block;
+    }
+    .u-info-box .u-fans .button:first-child{
+      margin-right: 1px;
+    }
+    .u-info-box .u-fans .button:last-child{
+      margin-left: 1px;
     }
 </style>
 
 <div class="u-info-box assertive-bg" ng-controller="userCtrl">
-    <div class="u-face">
-        <a ng-controller="imgCtrl">
-            <img ng-src="{{uInfo.headIcon}}" ng-click="openPopover($event)" />
-        </a>
-    </div>
-    <div class="u-info">
-        <p><strong ng-bind="uInfo.username"></strong></p>
-        <p>
-            <strong><span ng-bind="uInfo.attentions"></span><span>关注</span></strong> |
-            <strong><span ng-bind="uInfo.funs"></span><span>粉丝</span></strong>
-        </p>
-        <p ng-bind="uInfo.uWords"></p>
-    </div>
+  <div class="u-face">
+      <a ng-controller="imgCtrl">
+          <img ng-src="{{uInfo.headIcon}}" ng-click="openPopover($event)" />
+      </a>
+  </div>
+  <div class="u-info">
+      <p><strong ng-bind="uInfo.username"></strong></p>
+      <p ng-bind="uInfo.uWords"></p>
+  </div>
+  <div class="button-bar u-fans">
+    <a class="button">全部动态<span>123</span></a>
+    <a class="button">关注<span ng-bind="uInfo.attentions">123</span></a>
+    <a class="button">粉丝<span ng-bind="uInfo.funs">123</span></a>
+  </div>
 </div>

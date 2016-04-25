@@ -5,11 +5,18 @@
 angular.module('cook.routers', [])
   .config(function($stateProvider) {
     $stateProvider
-      //设置
+      //食谱详情
       .state('recipeDetail', {
        // params:{"userData":null,"userData":null},
         url: '/cook/recipeDetail',
         templateUrl: 'cm/app/cook/recipeDetail/main.html',
         controller: 'recipeDetailCtrl'
+      })
+      //食谱详情
+      .state('addRecipe', {
+        // params:{"userData":null,"userData":null},
+        url: '/cook/addRecipe',
+        templateUrl: 'cm/app/cook/addRecipe/main.html',
+        controller: 'addRecipeCtrl'
       })
   });
