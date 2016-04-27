@@ -51,6 +51,7 @@
     font-family: "黑体";
   }
   .c-content .c-content-list{
+    height: 250px;
     margin-top: 10px;
     position: relative;
     display: block;
@@ -69,15 +70,8 @@
     position: absolute;
     bottom: 47px;
   }
-  .c-content .c-content-list .c-content-backdrop{
-    z-index:2;
-    background: black;
-    filter:alpha(opacity=40);
-    -moz-opacity:0.4;
-    -khtml-opacity: 0.4;
-    opacity: 0.4;
-  }
   .c-content .c-content-list .c-content-infoDiv{
+    background: rgba(0,0,0,0.3);
     z-index:3;
   }
   .c-content .c-content-list .c-content-infoDiv h4,.c-content .c-content-list .c-content-infoDiv p,.c-content .c-content-list .c-content-infoDiv .item-note{
@@ -117,11 +111,17 @@
     -webkit-box-orient: vertical;
   }
   .c-content .c-content-list .c-content-tabs{
-    padding-bottom: 1px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border: none;
+    background: none;
+    height: 46px;
   }
   .c-content .c-content-list .c-content-tabs .tab-item{
+    color: #fafafa;
+    background: rgba(0, 0, 0, 0.3);
     max-width: 100%;
+  }
+  .c-content .c-content-list .c-content-tabs .tab-item:first-child{
+    margin-right: 1px;
   }
 </style>
 <div class="c-content">
@@ -130,7 +130,6 @@
   </div>
   <a class="c-content-list" ng-href="#/cook/recipeDetail" nav-direction="forward">
     <img src="cm/app/business/img/2.jpg">
-    <div class="c-content-backdrop"></div>
     <div class="c-content-infoDiv">
       <h4>芒果慕斯</h4>
       <img src="cm/app/cook/img/touxiang.jpg">

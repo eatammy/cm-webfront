@@ -3,8 +3,11 @@
 @说明：添加食谱   添加封面图片、标题、简介、用料部分
 -->
 <style>
-  .tempText{
+  .tempText span:first-child{
     color: #cccccc;
+  }
+  .tempText .hidden{
+    display: none;
   }
   .c-add-coverImage{
     height: 200px;
@@ -18,23 +21,22 @@
     font-weight: normal;
     color: rgba(239, 71, 58, 0.5);
   }
+  .c-add-divider-on{
+    color: rgba(239, 71, 58, 0.9);
+  }
   .c-add-divider button{
     border-radius: 0;
     padding: 0 7px;
     float: right;
   }
-  .c-add-title,.c-add-sum{
-    min-height: 90px;
+  .c-add-material .list .item-content{
+    padding:0;
   }
-  .c-add-title h4{
-    min-height: 25px;
-    font-weight: bold;
-  }
-  .c-add-material .row{
+  .c-add-material .list .item{
+    border: none;
     background: #fcfcfc;
   }
-  .c-add-material .row .col .item{
-    border: none;
+  .c-add-material .row{
     background: #fcfcfc;
   }
   .c-add-material .row .col .item input{
@@ -42,47 +44,48 @@
   }
 </style>
 <div class="c-add-coverImage">
-  <!--<a ng-href="">-->
-    <!--<i class="icon ion-camera light"></i>-->
-  <!--</a>-->
   <img src="cm/app/cook/img/addImage.png">
 </div>
 
 <div class="padding c-add-title">
-  <h3 class="c-add-divider">标题<button class="button button-small button-clear button-assertive icon ion-edit"></button></h3>
-  <h4 class="tempText">请添加一个标题...</h4>
+  <h3 class="c-add-divider {{title_divider_on}}">标题<button class="button button-small button-clear button-assertive icon ion-edit" ng-click="addTitle()"></button></h3>
+  <h4 class="tempText" ng-click="addTitle()">
+    <span class="{{title_text_hidden}}">请添加一个标题</span>
+    <span ng-bind="recipeData.title"></span>
+  </h4>
 </div>
 
 <div class="padding c-add-sum">
-  <h3 class="c-add-divider">简介<button class="button button-small button-clear button-assertive icon ion-edit"></button></h3>
-  <p class="tempText">请添加一段简介...</p>
+  <h3 class="c-add-divider {{summary_divider_on}}">简介<button class="button button-small button-clear button-assertive icon ion-edit" ng-click="addSummary()"></button></h3>
+  <p class="tempText" ng-click="addSummary()">
+    <span class="{{summary_text_hidden}}">请添加一段简介</span>
+    <span ng-bind="recipeData.summary"></span>
+  </p>
 </div>
 
 <div class="padding-top padding-bottom c-add-material">
-  <h3 class="padding-left c-add-divider">用料</h3>
-  <div class="row">
-    <div class="col">
-      <label class="item item-input">
-        <input type="text" placeholder="例：盐" readonly>
-      </label>
-    </div>
-    <div class="col">
-      <label class="item item-input">
-        <input type="text" placeholder="10g" readonly>
-      </label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <label class="item item-input">
-        <input type="text" placeholder="例：盐" readonly>
-      </label>
-    </div>
-    <div class="col">
-      <label class="item item-input">
-        <input type="text" placeholder="10g" readonly>
-      </label>
-    </div>
-  </div>
-  <p class="padding c-add-divider"><button class="button button-small button-clear button-assertive icon ion-plus"></button></p>
+  <h3 class="padding-left padding-right c-add-divider {{material_divider_on}}">用料<button class="button button-small button-clear button-assertive icon ion-navicon-round" ng-click="showData.showDelete = !showData.showDelete;showData.showReorder = !showData.showReorder"></button></h3>
+  <ion-list show-delete="showData.showDelete" show-reorder="showData.showReorder" can-swipe="listCanSwipe">
+    <ion-item ng-repeat="item in recipeData.material">
+      <div class="row" ng-click="addMaterial(item)">
+        <div class="col">
+          <label class="item item-input">
+            <input type="text" value="{{item.food}}" placeholder="例：盐" readonly>
+          </label>
+        </div>
+        <div class="col">
+          <label class="item item-input">
+            <input type="text" value="{{item.num}}" placeholder="10g" readonly>
+          </label>
+        </div>
+      </div>
+      <ion-delete-button class="ion-minus-circled"
+                         ng-click="recipeData.material.splice($index, 1)">
+      </ion-delete-button>
+      <ion-reorder-button class="ion-navicon"
+                          on-reorder="reorderMaterialItem(item, $fromIndex, $toIndex)">
+      </ion-reorder-button>
+    </ion-item>
+  </ion-list>
+  <p class="padding c-add-divider"><button class="button button-small button-clear button-assertive icon ion-plus" ng-click="addOneMaterial()"></button></p>
 </div>
