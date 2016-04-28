@@ -64,8 +64,8 @@
 </div>
 
 <div class="padding-top padding-bottom c-add-material">
-  <h3 class="padding-left padding-right c-add-divider {{material_divider_on}}">用料<button class="button button-small button-clear button-assertive icon ion-navicon-round" ng-click="showData.showDelete = !showData.showDelete;showData.showReorder = !showData.showReorder"></button></h3>
-  <ion-list show-delete="showData.showDelete" show-reorder="showData.showReorder" can-swipe="listCanSwipe">
+  <h3 class="padding-left padding-right c-add-divider {{material_divider_on}}">用料<button class="button button-small button-clear button-assertive icon ion-navicon-round" ng-click="showData.showMaterialDelete = !showData.showMaterialDelete;showData.showMaterialReorder = !showData.showMaterialReorder"></button></h3>
+  <ion-list show-delete="showData.showMaterialDelete" show-reorder="showData.showMaterialReorder" can-swipe="listCanSwipe">
     <ion-item ng-repeat="item in recipeData.material">
       <div class="row" ng-click="addMaterial(item)">
         <div class="col">
@@ -80,7 +80,7 @@
         </div>
       </div>
       <ion-delete-button class="ion-minus-circled"
-                         ng-click="recipeData.material.splice($index, 1)">
+                         ng-click="deleteItem(recipeData.material,$index)">
       </ion-delete-button>
       <ion-reorder-button class="ion-navicon"
                           on-reorder="reorderMaterialItem(item, $fromIndex, $toIndex)">
